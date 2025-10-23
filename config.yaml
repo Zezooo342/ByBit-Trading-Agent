@@ -1,0 +1,125 @@
+# Configuration file for ByBit Expert Trading Agent
+# This file contains all settings for the trading bot
+
+# API Credentials (Required)
+# NEVER commit actual credentials to version control
+# Use environment variables or secure storage
+api_key: "YOUR_BYBIT_API_KEY"
+api_secret: "YOUR_BYBIT_API_SECRET"
+
+testnet: true  # Set to false for live trading
+
+# Trading Parameters
+trading:
+  symbols:
+    - "BTCUSDT"
+    - "ETHUSDT"
+    - "SOLUSDT"
+  timeframes:
+    - "15m"
+    - "1h"
+    - "4h"
+    - "1d"
+  check_interval: 60  # Seconds between analysis cycles
+  min_conviction: 0.6  # Minimum signal strength to execute trades
+  active_hours: null  # null for 24/7, or list like [9, 17] for 9 AM to 5 PM
+
+# Strategy Configuration
+strategies:
+  active:
+    - "smart_trend"
+    - "mean_reversion"
+    - "ensemble"
+  weights:
+    smart_trend: 0.4
+    mean_reversion: 0.3
+    ensemble: 0.3
+
+# Risk Management (Institutional-grade settings)
+risk_management:
+  max_portfolio_risk: 0.02    # 2% maximum risk per trade
+  max_position_risk: 0.01     # 1% maximum risk per position
+  max_correlated_risk: 0.03   # 3% maximum risk for correlated assets
+  max_drawdown_pause: 0.10    # Pause trading at 10% drawdown
+  max_drawdown_stop: 0.15     # Stop trading at 15% drawdown
+  max_open_positions: 5       # Maximum concurrent positions
+  use_kelly: true            # Use Kelly Criterion for position sizing
+  kelly_fraction: 0.3        # Conservative Kelly (0.3 = 30% of optimal)
+  use_volatility_sizing: true # Adjust size based on asset volatility
+  volatility_lookback: 20     # Days to calculate volatility
+  target_volatility: 0.01     # Target daily volatility (1%)
+
+# Analysis Modules
+analysis:
+  sentiment:
+    enabled: false  # Enable/disable sentiment analysis
+    sources:
+      - "twitter"
+      - "news"
+    api_keys:
+      twitter_bearer_token: ""
+      news_api_key: ""
+  macro:
+    enabled: false  # Enable/disable macro analysis
+    indicators:
+      - "fed_funds_rate"
+      - "inflation"
+      - "gdp_growth"
+    api_keys:
+      fred_api_key: ""
+      alpha_vantage_key: ""
+
+# Notifications
+notifications:
+  level: "IMPORTANT"  # ALL, IMPORTANT, CRITICAL
+  telegram:
+    enabled: true
+    token: "YOUR_TELEGRAM_BOT_TOKEN"
+    chat_id: "YOUR_TELEGRAM_CHAT_ID"
+  email:
+    enabled: false
+    smtp_server: "smtp.gmail.com"
+    smtp_port: 587
+    username: ""
+    password: ""
+    recipients:
+      - "your-email@example.com"
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "trading_agent.log"
+  max_file_size: 10485760  # 10MB
+  backup_count: 5
+
+# Data Management
+data:
+  cache_dir: "./cache"
+  max_cache_age: 3600  # 1 hour
+  enable_compression: true
+
+# Performance Analytics
+analytics:
+  enabled: true
+  report_frequency: "daily"  # hourly, daily, weekly
+  metrics:
+    - "win_rate"
+    - "profit_factor"
+    - "sharpe_ratio"
+    - "max_drawdown"
+    - "calmar_ratio"
+    - "sortino_ratio"
+  charts:
+    enabled: true
+    format: "png"  # png, svg, html
+
+# Advanced Settings (Expert users only)
+advanced:
+  enable_machine_learning: false
+  model_update_frequency: "weekly"
+  backtest_enabled: true
+  backtest_period: "2y"  # 2 years
+  slippage_tolerance: 0.001  # 0.1% slippage tolerance
+  commission_rate: 0.001    # 0.1% commission
+  enable_paper_trading: true
+  paper_trading_balance: 10000  # Starting balance for paper trading
