@@ -1,0 +1,14 @@
+# These are supported funding model platforms
+github: [octocat, defunkt, pjhyett, mojombo] # Replace with up to 4 GitHub Sponsors-enabled usernames e.g., [user1, user2]
+patreon: saving-store # Replace with a single Patreon username
+open_collective: saving-store # Replace with a single Open Collective username
+ko_fi: saving_store # Replace with a single Ko-fi username
+tidelift: npm/saving-store # Replace with a single Tidelift platform-name/package-name e.g., npm/babel
+community_bridge: saving-store-project # Replace with a single Community Bridge project-name e.g., cloud-foundry
+liberapay: saving-store # Replace with a single Liberapay username
+issuehunt: saving-store # Replace with a single IssueHunt username
+lfx_crowdfunding: saving-store-foundation # Replace with a single LFX Crowdfunding project-name e.g., cloud-foundry
+polar: saving-store # Replace with a single Polar username
+buy_me_a_coffee: saving_store # Replace with a single Buy Me a Coffee username
+thanks_dev: saving-store # Replace with a single thanks.dev username
+custom: ['https://www.paypal.com/donate?hosted_button_id=EXAMPLE123', 'https://cash.app/$savingstore', 'https://venmo.com/saving-store', 'https://www.gofundme.com/saving-store-project'] # Replace with up to 4 custom sponsorship URLs e.g., ['link1', 'link2']
